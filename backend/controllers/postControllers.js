@@ -1,10 +1,10 @@
-const postModel=require("../models/PostModel")
+const PostModel=require("../models/PostModel")
 
 
 const addPost=async(req,res)=>{
     const {title,caption}=req.body
     try {
-        const post=await postModel.create({
+        const post=await PostModel.create({
             title,
             caption,
             postimage:req.file.originalname
@@ -24,12 +24,24 @@ const addPost=async(req,res)=>{
     }
    
 }
-const getPost=async(req,res)=>{
-    PostModel.find()
 
+const getPost=async(req,res)=>{
+    const posts=await PostModel.find()
+
+   res.status(200).json(posts)
 }
-const deletePost=async(id)=>{
-    PostModel.findByIdAndDelete()
+
+const deletePost=async(req,res)=>{
+    const post = await PostModel.findById(req.params.id)
+
+    if (!post) {
+      res.status(400)
+      throw new Error('article not found')
+    }
+  
+    await post.remove()
+  
+    res.status(200).json({id: req.params.id})
 }
 const updatePost=async(id)=>{
     PostModel.findByIdAndUpdate()

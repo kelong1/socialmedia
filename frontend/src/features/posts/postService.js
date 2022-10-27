@@ -15,8 +15,23 @@ const addPost=async(formData)=>{
     return response.data
 }
 
+const getPost=async()=>{
+    const response=await axios.get(API+"getPost")
+
+    return response.data
+}
+const deletePost=async(id)=>{
+    
+    const response=await axios.delete(API+id)
+
+    return response.data
+}
+
+
 
 export  const postService={
-    addPost
+    addPost,
+    getPost,
+    deletePost
 }
 export default postService
