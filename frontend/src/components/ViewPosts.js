@@ -1,10 +1,17 @@
 import React from 'react'
-import{deletePost} from "../features/posts/postSlice"
+import{deletePost,getOnePost} from "../features/posts/postSlice"
 import{useDispatch} from "react-redux"
+import {useNavigate} from "react-router-dom"
+
 
 
 const ViewPosts = ({post}) => {
   const dispatch=useDispatch()
+  const navigate=useNavigate()
+  const update=()=>{
+    dispatch(getOnePost(post._id))
+    navigate("/UpdatePost/:id")
+  }
   return (
     <div>
         <div>
@@ -15,7 +22,7 @@ const ViewPosts = ({post}) => {
     <h3>{post.caption}</h3>
     
     <button className='btn btn-block btn-danger' onClick={()=>dispatch(deletePost(post._id))}>Delete</button>
-    <button className='btn btn-block btn-danger' onClick={()=>dispatch(deletePost(post._id))}>Update</button>
+    <button className='btn btn-block btn-danger' onClick={update}>Update</button>
     </div>
   )
 }

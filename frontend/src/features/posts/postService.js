@@ -9,7 +9,7 @@ const addPost=async(formData)=>{
     const response=await axios.post(API+"addpost",formData)
 
     if(response.data){
-        localStorage.setItem('blog',JSON.stringify(response.data))
+        localStorage.setItem('post',JSON.stringify(response.data))
     }
 
     return response.data
@@ -20,19 +20,23 @@ const getPost=async()=>{
 
     return response.data
 }
+const getOnePost=async(id)=>{
+    const response=await axios.get(API+id)
+    return response.data
+}
 const deletePost=async(id)=>{
     
     const response=await axios.delete(API+id)
 
     return response.data
 }
-const UpdatePost=async(formData)=>{
+const UpdatePost=async(id,formData)=>{
 
    
-    const response=await axios.put(API+"",formData)
+    const response=await axios.put(API+id,formData)
 
     if(response.data){
-        localStorage.setItem('blog',JSON.stringify(response.data))
+        localStorage.setItem('post',JSON.stringify(response.data))
     }
 
     return response.data
@@ -43,6 +47,7 @@ const UpdatePost=async(formData)=>{
 export  const postService={
     addPost,
     getPost,
+    getOnePost,
     deletePost,
     UpdatePost
 }

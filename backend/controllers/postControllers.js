@@ -38,6 +38,7 @@ const getOnePost=(req,res)=>{
    
 }
 
+
 const deletePost=async(req,res)=>{
     const post = await PostModel.findById(req.params.id)
 
