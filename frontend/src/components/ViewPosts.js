@@ -14,7 +14,8 @@ const ViewPosts = ({post}) => {
     <h3>{post.title}</h3>
     <h3>{post.caption}</h3>
     
-    <button className='btn btn-block' onClick={()=>dispatch(deletePost(post._id))}>Delete</button>
+    <button className='btn btn-block btn-danger' onClick={()=>dispatch(deletePost(post._id))}>Delete</button>
+    <button className='btn btn-block btn-danger' onClick={()=>dispatch(deletePost(post._id))}>Update</button>
     </div>
   )
 }

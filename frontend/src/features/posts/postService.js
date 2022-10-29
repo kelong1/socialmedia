@@ -26,12 +26,24 @@ const deletePost=async(id)=>{
 
     return response.data
 }
+const UpdatePost=async(formData)=>{
+
+   
+    const response=await axios.put(API+"",formData)
+
+    if(response.data){
+        localStorage.setItem('blog',JSON.stringify(response.data))
+    }
+
+    return response.data
+}
 
 
 
 export  const postService={
     addPost,
     getPost,
-    deletePost
+    deletePost,
+    UpdatePost
 }
 export default postService

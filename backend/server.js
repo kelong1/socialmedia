@@ -8,7 +8,7 @@ const mongoose=require("mongoose")
 
 dotenv.config()
 
-mongoose.connect(process.env.DATABASE,{useNewUrlParser:true,useUnifiedTopology:true},()=>console.log("Database is connected"))
+mongoose.connect(process.env.DATABASE,()=>console.log("Database is connected"))
 
 app.use(express.json())
 app.use(cors())

@@ -30,6 +30,13 @@ const getPost=async(req,res)=>{
 
    res.status(200).json(posts)
 }
+const getOnePost=(req,res)=>{
+     PostModel.findById(req.params.id)
+     .then(post=>res.json(post))
+     .catch(err=>res.status(400).json(`Error${err}`))
+
+   
+}
 
 const deletePost=async(req,res)=>{
     const post = await PostModel.findById(req.params.id)
@@ -43,13 +50,12 @@ const deletePost=async(req,res)=>{
   
     res.status(200).json({id: req.params.id})
 }
-const updatePost=async(id)=>{
-    PostModel.findByIdAndUpdate()
-}
+
 
 module.exports={
     addPost,
     getPost,
+    getOnePost,
     deletePost,
-    updatePost
+   
 }

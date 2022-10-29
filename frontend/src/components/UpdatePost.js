@@ -2,7 +2,7 @@ import {useState,useEffect} from 'react'
 import {useSelector,useDispatch} from "react-redux";
 import{reset,addPost} from "../features/posts/postSlice"
 
-const AddPost = () => {
+const UpdatePost = () => {
     const [formData,setFormData]=useState({
         title:"",
         caption:"",
@@ -50,14 +50,14 @@ const AddPost = () => {
   return (
     <section>
         <form action="" encType='multipart/form-data'className='form-control' onSubmit={onSubmit}>
-            <h1>AddPost</h1>
+            <h1>UpdatePost</h1>
             <input type="text" placeholder='add title' className='form-control' name='title' onChange={onChange}/>
             <input type="text" placeholder='add caption'  className='form-control'name='caption' onChange={onChange}/>
             <input type="file" placeholder='add image' name='postimage'  className='form-control' onChange={onChangeFile}/>
-            <button className='btn btn-block btn-danger'>AddPost</button>
+            <button className='btn btn-block btn-danger'>UpdatePost</button>
         </form>
     </section>
   )
 }
 
-export default AddPost
+export default UpdatePost
