@@ -44,17 +44,21 @@ router.post("/addPost",upload.single("postimage"),async(req,res,file)=>{
 
  router.delete('/:id',deletePost)
  router.put("/:id",upload.single("postimage"),async(req,res,file)=>{
-   await  PostModel.findById(req.params.id)
-    .then(post=>{
+    try {
+      const post=  await  PostModel.findById(req.params.id)
+    
         post.title=req.body.title,
         post.caption=req.body.caption,
         post.postimage=req.file.originalname
 
-        post.save()
-        .then(()=>res.json("The post was updated succesfully"))
-        .catch((err)=>res.status(400).json(`Error ${err}`))
+       await post.save()
+        
 
-    })
+    
+    } catch (error) {
+        console.error(error)
+    }
+   
  })
 
 module.exports=router

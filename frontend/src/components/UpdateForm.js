@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react'
 import {useSelector,useDispatch} from "react-redux";
 import{UpdatePost} from "../features/posts/postSlice"
-import { useParams } from 'react-router-dom';
+
 
 
 const UpdateForm = () => {
@@ -12,9 +12,9 @@ const UpdateForm = () => {
     
     
     const dispatch=useDispatch();
-    let{id}=useParams()
+   
     const{post,isError,isSuccess,message}=useSelector((state)=>state.posts)
-    
+  
      useEffect(()=>{
      if({...post}){
       setTitle(post.title)
@@ -43,7 +43,7 @@ const UpdateForm = () => {
         formData.append("caption",caption)
         formData.append("postimage",file)
 
-        dispatch(UpdatePost(id,formData))
+        dispatch(UpdatePost(post._id,formData))
         setTitle("")
         setCaption("")
         setFileName("")
@@ -52,11 +52,13 @@ const UpdateForm = () => {
      
   return (
     <section>
-        <form action="" encType='multipart/form-data'className='form-control' onSubmit={onSubmit}>
+      
+        <form action="" encType='multipart/form-data' className='form-control' onSubmit={onSubmit}>
+          
             <h1>UpdatePost</h1>
             <input type="text" placeholder='add title' className='form-control' name='title' onChange={onChangeTitle} value={title ||""}/>
             <input type="text" placeholder='add caption'  className='form-control'name='caption' onChange={onChangeCaption} value={caption || ""}/>
-            <input type="file" placeholder='add image' filename='postimage'  className='form-control' onChange={onChangeFile} value=""/>
+            <input type="file" placeholder='add image' name='postimage'  className='form-control' onChange={onChangeFile}  />
             <button className='btn btn-block btn-danger'>UpdatePost</button>
         </form>
     </section>
