@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Home from './components/Home';
 import "./App.css"
 import UpdateForm from './components/UpdateForm';
+import Login from './components/Login';
+import Register from './components/Register';
 
 
 
@@ -15,6 +17,9 @@ function App() {
     <Header/>
     <Routes>
     <Route path="/Addpost" element={<AddPost/>}/>
+    <Route path="/Login" element={<Login/>}/>
+    <Route path="/Register" element={<Register/>}/>
+
     <Route path="/ViewPost" element={<Home/>}/>
     <Route path="/UpdatePost/:id" element={<UpdateForm/>}/>
     </Routes>

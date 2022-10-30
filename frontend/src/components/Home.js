@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import{getPost,reset} from "../features/posts/postSlice"
+import{getPost} from "../features/posts/postSlice"
 import ViewPosts from './ViewPosts'
 
 const Home = () => {
@@ -12,13 +12,12 @@ const Home = () => {
           }
             
           dispatch(getPost())
-          return () => {
-            dispatch(reset())
-          }
+         
 
-    },[isError,isSuccess,message,dispatch])
+    },[posts,isError,isSuccess,message,dispatch])
   return (
     <section>
+     
        <section className='PostList'>
           {posts.length> 0 ?(<div className='posts'>
             {posts.map((post)=>{
