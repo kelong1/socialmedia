@@ -16,7 +16,7 @@ const Home = () => {
 
     },[posts,isError,isSuccess,message,dispatch])
   return (
-    <section>
+    
      
        <section className='PostList'>
           {posts.length> 0 ?(<div className='posts'>
@@ -26,7 +26,7 @@ const Home = () => {
             })}
           </div>):(<h3>No posts uploaded yet</h3>)}
         </section>
-    </section>
+   
   )
 }
 

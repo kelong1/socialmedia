@@ -51,9 +51,9 @@ const UpdateForm = () => {
 
      
   return (
-    <section>
+    <section className='updateform_section'>
       
-        <form action="" encType='multipart/form-data' className='form-control' onSubmit={onSubmit}>
+        <form action="" encType='multipart/form-data' className='form-control updatePost' onSubmit={onSubmit}>
           
             <h1>UpdatePost</h1>
             <input type="text" placeholder='add title' className='form-control' name='title' onChange={onChangeTitle} value={title ||""}/>

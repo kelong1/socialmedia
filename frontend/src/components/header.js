@@ -19,6 +19,7 @@ function Header(){
         <div className='logo'>
             <h1>Social media</h1>
         </div>
+        <i class="fa fa-bars" ></i>
         <div className='nav'>
             <ul>
                 <li>
@@ -30,7 +31,7 @@ function Header(){
                 <li>
                     <Link to="/ViewPost" className='li'>ViewPosts</Link>
                 </li>
-                
+             
                     {user?( 
                     <li>
                     <button className='btn btn-dark' onClick={onLogout}>Logout</button>
@@ -41,7 +42,7 @@ function Header(){
                      <li>
                      <Link to="/Register"className='li'>Register</Link>
                      </li></>)}
-               
+            
                 
                
                 

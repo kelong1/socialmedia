@@ -48,8 +48,8 @@ const AddPost = () => {
 
      
   return (
-    <section>
-        <form action="" encType='multipart/form-data'className='form-control' onSubmit={onSubmit}>
+    <section className='addpost_section'>
+        <form action="" encType='multipart/form-data'className='form-control addPost' onSubmit={onSubmit}>
             <h1>AddPost</h1>
             <input type="text" placeholder='add title' className='form-control' name='title' onChange={onChange}/>
             <input type="text" placeholder='add caption'  className='form-control'name='caption' onChange={onChange}/>

@@ -13,11 +13,11 @@ const ViewPosts = ({post}) => {
     navigate("/UpdatePost/:id")
   }
   return (
-    <div>
+    <div className='postcard'>
         <div>
         {new Date(post.createdAt).toLocaleString("en-US")}
          </div>
-         <img src={`/uploads/${post.postimage}`} alt="..." />
+         <img src={`/uploads/${post.postimage}`} alt="..." className='img' />
     <h3>{post.title}</h3>
     <h3>{post.caption}</h3>
     
