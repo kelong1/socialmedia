@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API="http://localhost:9000/app/posts/"
+const API="http://localhost:9500/app/posts/"
 
 
 const addPost=async(formData)=>{
@@ -22,6 +22,7 @@ const getPost=async()=>{
 }
 const getOnePost=async(id)=>{
     const response=await axios.get(API+id)
+    
     return response.data
 }
 const deletePost=async(id)=>{

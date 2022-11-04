@@ -1,3 +1,4 @@
+const path=require("path")
 const express=require("express");
 const app=express();
 const PostUrls=require("./routes/PostRoute")
@@ -17,14 +18,14 @@ app.use(cors())
 app.use("/app/users",UserUrls)
 app.use("/app/posts",PostUrls)
 
-app.listen(process.env.PORT,()=>console.log("Port is running at 9000"))
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.listen(process.env.PORT,()=>console.log("Port is running at 9500"))
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
   
-//     app.get('*', (req, res) =>
-//       res.sendFile(
-//         path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
-//       )
-//     );
-//   } 
+    app.get('*', (req, res) =>
+      res.sendFile(
+        path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+      )
+    );
+  } 
 
