@@ -2,6 +2,8 @@ import React from 'react'
 import{deletePost,getOnePost} from "../features/posts/postSlice"
 import{useDispatch} from "react-redux"
 import {useNavigate} from "react-router-dom"
+import {MdDelete} from "react-icons/md"
+import{AiFillEdit} from "react-icons/ai"
 
 
 
@@ -21,8 +23,8 @@ const ViewPosts = ({post}) => {
     <h3>{post.title}</h3>
     <h3>{post.caption}</h3>
     
-    <button className='btn btn-block btn-danger' onClick={()=>dispatch(deletePost(post._id))}>Delete</button>
-    <button className='btn btn-block btn-danger' onClick={update}>Update</button>
+  <MdDelete  size="2em" style={{color:"red"}}onClick={()=>dispatch(deletePost(post._id))}/>
+  <AiFillEdit size="2em" style={{float:"right",color:"green"}} onClick={update}/>
     </div>
   )
 }
